@@ -22,6 +22,7 @@ public class Blog {
 
     private String content;
 
+    @Column(nullable = false, name = "created_at")
     private LocalDateTime createdAt;
 
 
