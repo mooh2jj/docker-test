@@ -11,4 +11,5 @@ services:
       - "3306:3306"
     volumes:
       - /mysql/conf.d:/etc/mysql/conf.d
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # init.sql을 컨테이너 내부의 초기화 디렉토리로 복사
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
