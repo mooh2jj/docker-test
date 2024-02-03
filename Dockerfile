@@ -2,7 +2,7 @@
 FROM openjdk:11-jdk
 
 # 환경 변수 SPRING_PROFILE를 "dev"로 설정합니다.
-ENV SPRING_PROFILE "dev"
+ENV SPRING_PROFILE "prod"
 
 # 현재 디렉토리의 모든 파일을 도커 이미지로 복사합니다.
 COPY . .
