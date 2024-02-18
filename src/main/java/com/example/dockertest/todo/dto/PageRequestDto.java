@@ -6,7 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @SuperBuilder // 상속시, 기본값을 설정해주는 어노테이션
-public class PageRequest {
+public class PageRequestDto {
 
     @Builder.Default
     private int page = 1;
@@ -15,7 +15,7 @@ public class PageRequest {
     private int size = 10;
 
     @Builder
-    public PageRequest(int page, int size) {
+    public PageRequestDto(int page, int size) {
         this.page = page;
         this.size = size;
     }

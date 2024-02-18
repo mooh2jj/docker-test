@@ -1,6 +1,6 @@
 package com.example.dockertest.todo.dto;
 
-import lombok.Data;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,33 +12,34 @@ import java.util.stream.IntStream;
 @Getter
 @Setter
 @ToString
-public class PageResponse<E> {
+public class PageResponseDto<E> {
 
     private List<E> dtoList;
     private List<Integer> pageNumList;
 
-    private PageRequest pageRequest;
+    private PageRequestDto pageRequestDto;
 
     private boolean prev, next;
 
     private int totalCount, prevPage, nextPage, totalPage, current;
 
-    public PageResponse(List<E> dtoList, PageRequest pageRequest, long total) {
+    @Builder(builderMethodName = "withAll")
+    public PageResponseDto(List<E> dtoList, PageRequestDto pageRequestDto, long total) {
         this.dtoList = dtoList;
-        this.pageRequest = pageRequest;
+        this.pageRequestDto = pageRequestDto;
         this.totalCount = (int) total;
 
         // 끝페이지 end
-        int end = (int) (Math.ceil(pageRequest.getPage() / 10.0)) * 10;
+        int end = (int) (Math.ceil(pageRequestDto.getPage() / 10.0)) * 10;
 
         int start = end - 9;
 
         // 진짜 마지막
-        int last = (int) (Math.ceil(totalCount / (double) pageRequest.getSize()));
+        int last = (int) (Math.ceil(totalCount / (double) pageRequestDto.getSize()));
 
         end = end > last ? last : end;
         this.prev = start > 1;
-        this.next = totalCount > end * pageRequest.getSize();
+        this.next = totalCount > end * pageRequestDto.getSize();
 
         this.pageNumList = IntStream.rangeClosed(start, end).boxed().collect(Collectors.toList());
 

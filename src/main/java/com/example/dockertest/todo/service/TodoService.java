@@ -1,5 +1,7 @@
 package com.example.dockertest.todo.service;
 
+import com.example.dockertest.todo.dto.PageRequestDto;
+import com.example.dockertest.todo.dto.PageResponseDto;
 import com.example.dockertest.todo.dto.TodoDto;
 import com.example.dockertest.todo.entity.Todo;
 
@@ -12,6 +14,8 @@ public interface TodoService {
     void update(TodoDto todoDto);
 
     void delete(Long tno);
+
+    PageResponseDto<TodoDto> getList(PageRequestDto request);
 
     default TodoDto entityToDto(Todo entity) {
         return TodoDto.builder()
