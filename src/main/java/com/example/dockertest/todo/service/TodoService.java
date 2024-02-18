@@ -11,7 +11,7 @@ public interface TodoService {
 
     Long create(TodoDto todoDto);
 
-    void update(TodoDto todoDto);
+    void update(Long tno, TodoDto todoDto);
 
     void delete(Long tno);
 

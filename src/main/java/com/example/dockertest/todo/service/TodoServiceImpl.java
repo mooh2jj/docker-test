@@ -39,10 +39,10 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void update(TodoDto todoDto) {
+    public void update(Long tno, TodoDto todoDto) {
         log.info("update............");
-
-        Todo todo = this.dtoToEntity(todoDto);
+        Todo todo = todoRepository.findById(tno)
+                .orElseThrow(RuntimeException::new);
         todo.update(todoDto);
     }
 

@@ -13,6 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry
                 .addMapping("/**")
                 .allowedOrigins("http://localhost:3001")  // 리액트 url 주소
+                .maxAge(3600)
                 .allowedMethods(
                         HttpMethod.GET.name(),
                         HttpMethod.POST.name(),
