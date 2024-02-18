@@ -24,4 +24,28 @@ public class TodoServiceImpl implements TodoService {
                 .map(this::entityToDto)
                 .orElseThrow(RuntimeException::new);
     }
+
+    @Override
+    public Long create(TodoDto todoDto) {
+        log.info("create............");
+
+        Todo todo = this.dtoToEntity(todoDto);
+        Todo save = todoRepository.save(todo);
+        return save.getTno();
+    }
+
+    @Override
+    public void update(TodoDto todoDto) {
+        log.info("update............");
+
+        Todo todo = this.dtoToEntity(todoDto);
+        todo.update(todoDto);
+    }
+
+    @Override
+    public void delete(Long tno) {
+        log.info("delete............");
+
+        todoRepository.deleteById(tno);
+    }
 }

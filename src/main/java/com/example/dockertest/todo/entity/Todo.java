@@ -1,5 +1,6 @@
 package com.example.dockertest.todo.entity;
 
+import com.example.dockertest.todo.dto.TodoDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -34,5 +35,12 @@ public class Todo {
         this.content = content;
         this.completed = completed;
         this.dueDate = dueDate;
+    }
+
+    public void update(TodoDto todoDto) {
+        this.title = todoDto.getTitle();
+        this.content = todoDto.getContent();
+        this.completed = todoDto.isCompleted();
+        this.dueDate = todoDto.getDueDate();
     }
 }
