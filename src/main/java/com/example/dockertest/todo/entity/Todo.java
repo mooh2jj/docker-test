@@ -16,7 +16,7 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tno;
 
-    @Column(length = 100, nullable = false)
+    @Column(length = 500, nullable = false)
     private String title;
 
     @Column(length = 1000)
@@ -24,6 +24,7 @@ public class Todo {
 
     private boolean completed;
 
+    @Column(name = "due_date")
     private LocalDate dueDate;
 
     @Builder
