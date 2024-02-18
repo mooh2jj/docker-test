@@ -1,7 +1,7 @@
 package com.example.dockertest.init;
 
-import com.example.dockertest.dto.request.BlogCreateRequest;
-import com.example.dockertest.service.BlogService;
+import com.example.dockertest.blog.dto.request.BlogCreateRequest;
+import com.example.dockertest.blog.service.BlogService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

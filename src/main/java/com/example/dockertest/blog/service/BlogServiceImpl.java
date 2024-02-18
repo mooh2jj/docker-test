@@ -1,9 +1,9 @@
-package com.example.dockertest.service;
+package com.example.dockertest.blog.service;
 
-import com.example.dockertest.dto.request.BlogCreateRequest;
-import com.example.dockertest.dto.request.BlogUpdateRequest;
-import com.example.dockertest.entity.Blog;
-import com.example.dockertest.repository.BlogRepository;
+import com.example.dockertest.blog.dto.request.BlogCreateRequest;
+import com.example.dockertest.blog.dto.request.BlogUpdateRequest;
+import com.example.dockertest.blog.entity.Blog;
+import com.example.dockertest.blog.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

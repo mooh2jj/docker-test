@@ -1,8 +1,8 @@
-package com.example.dockertest.controller.controller;
+package com.example.dockertest.blog.controller.controller;
 
-import com.example.dockertest.dto.request.BlogCreateRequest;
-import com.example.dockertest.dto.request.BlogUpdateRequest;
-import com.example.dockertest.service.BlogService;
+import com.example.dockertest.blog.dto.request.BlogCreateRequest;
+import com.example.dockertest.blog.dto.request.BlogUpdateRequest;
+import com.example.dockertest.blog.service.BlogService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

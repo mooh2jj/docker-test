@@ -1,7 +1,7 @@
-package com.example.dockertest.entity;
+package com.example.dockertest.blog.entity;
 
-import com.example.dockertest.dto.request.BlogCreateRequest;
-import com.example.dockertest.dto.request.BlogUpdateRequest;
+import com.example.dockertest.blog.dto.request.BlogCreateRequest;
+import com.example.dockertest.blog.dto.request.BlogUpdateRequest;
 import lombok.*;
 
 import javax.persistence.*;

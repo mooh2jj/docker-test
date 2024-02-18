@@ -1,4 +1,4 @@
-package com.example.dockertest.dto.request;
+package com.example.dockertest.blog.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
