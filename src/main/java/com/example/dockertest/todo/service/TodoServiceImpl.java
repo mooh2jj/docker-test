@@ -1,0 +1,27 @@
+package com.example.dockertest.todo.service;
+
+import com.example.dockertest.todo.dto.TodoDto;
+import com.example.dockertest.todo.entity.Todo;
+import com.example.dockertest.todo.repository.TodoRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Slf4j
+@Service
+@RequiredArgsConstructor
+@Transactional
+public class TodoServiceImpl implements TodoService {
+
+    private final TodoRepository todoRepository;
+
+    @Transactional(readOnly = true)
+    @Override
+    public TodoDto get(Long tno) {
+        log.info("get............");
+        return todoRepository.findById(tno)
+                .map(this::entityToDto)
+                .orElseThrow(RuntimeException::new);
+    }
+}

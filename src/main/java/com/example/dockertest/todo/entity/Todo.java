@@ -28,7 +28,8 @@ public class Todo {
     private LocalDate dueDate;
 
     @Builder
-    public Todo(String title, String content, boolean completed, LocalDate dueDate) {
+    public Todo(Long tno, String title, String content, boolean completed, LocalDate dueDate) {
+        this.tno = tno;
         this.title = title;
         this.content = content;
         this.completed = completed;
