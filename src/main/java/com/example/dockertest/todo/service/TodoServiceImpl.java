@@ -66,7 +66,7 @@ public class TodoServiceImpl implements TodoService {
         return PageResponseDto.<TodoDto>withAll()
                 .dtoList(content)
                 .pageRequestDto(request)
-                .total(total)
+                .totalCount(total)
                 .build();
     }
 }

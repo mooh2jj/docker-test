@@ -24,10 +24,10 @@ public class PageResponseDto<E> {
     private int totalCount, prevPage, nextPage, totalPage, current;
 
     @Builder(builderMethodName = "withAll")
-    public PageResponseDto(List<E> dtoList, PageRequestDto pageRequestDto, long total) {
+    public PageResponseDto(List<E> dtoList, PageRequestDto pageRequestDto, long totalCount) {
         this.dtoList = dtoList;
         this.pageRequestDto = pageRequestDto;
-        this.totalCount = (int) total;
+        this.totalCount = (int) totalCount;
 
         // 끝페이지 end
         int end = (int) (Math.ceil(pageRequestDto.getPage() / 10.0)) * 10;
@@ -41,11 +41,12 @@ public class PageResponseDto<E> {
         this.prev = start > 1;
         this.next = totalCount > end * pageRequestDto.getSize();
 
-        this.pageNumList = IntStream.rangeClosed(start, end).boxed().collect(Collectors.toList());
+        this.pageNumList = IntStream.rangeClosed(start,end).boxed().collect(Collectors.toList());
 
         this.prevPage = prev ? start - 1 : 0;
         this.nextPage = next ? end + 1 : 0;
 
+        this.totalPage = this.pageNumList.size();
+        this.current = pageRequestDto.getPage();
     }
-
 }
