@@ -34,8 +34,7 @@ public class TodoServiceImpl implements TodoService {
     public Long create(TodoDto todoDto) {
         log.info("create............");
 
-        Todo todo = this.dtoToEntity(todoDto);
-        Todo save = todoRepository.save(todo);
+        Todo save = todoRepository.save(this.dtoToEntity(todoDto));
         return save.getTno();
     }
 

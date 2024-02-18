@@ -2,6 +2,7 @@ package com.example.dockertest.todo.dto;
 
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -20,6 +21,7 @@ public class TodoDto {
 
     private boolean completed;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
 
 }
